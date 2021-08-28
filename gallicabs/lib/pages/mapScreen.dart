@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:gallicabs/LoginPages/main.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapSample extends StatefulWidget {
@@ -46,7 +47,10 @@ class MapSampleState extends State<MapSample> {
                   ),
 
                   onPressed: () {
-                    //...
+                    // Navigator.pushNamed(context, '/LoginApp');
+                    Navigator.push(context, new MaterialPageRoute(
+                        builder: (context) => new MyApp2())
+                    );
                   },
                   heroTag: null,
                 ),

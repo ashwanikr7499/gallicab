@@ -1,9 +1,27 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
-
+import 'LoginPages/main.dart';
 import 'pages/mapScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  // runApp(MyApp());
+  runApp(
+    MaterialApp(
+      title: 'Named Routes Demo',
+      // Start the app with the "/" named route. In this case, the app starts
+      // on the FirstScreen widget.
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) =>  MyApp(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/LoginApp': (context) =>  MyApp2(),
+      },
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
